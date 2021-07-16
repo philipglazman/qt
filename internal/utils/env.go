@@ -426,7 +426,7 @@ func GoList(args ...string) *exec.Cmd {
 		if !(strings.Contains(strings.Join(args, "|"), "github.com/therecipe/qt/internal") && !strings.Contains(strings.Join(args, "|"), "github.com/therecipe/qt/internal/binding/runtime")) {
 			cmd.Args = append(cmd.Args, GOFLAGS())
 		} else if GOVERSION_NUM() >= 114 {
-			cmd.Args = append(cmd.Args, "-mod=mod")
+			cmd.Args = append(cmd.Args, "-mod=vendor")
 		}
 		cmd.Dir = filepath.Dir(GOMOD(""))
 	}
